@@ -218,3 +218,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# TRACE local environments and generated files
+.venv/
+*.py[cod]
+# Local secrets
+.env.*
+!.env.example
+# Local-only research data and logs
+results/raw/
+results/private/
+# Local editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Retained locally; one-off setup scripts are not project deliverables
+/setup_trace_project.py
+/setup_trace_evaluation.py
+/fix_trace_evaluation_leakage.py
+/add_trace_bm25.py
+# Temporary source backups
+*.backup*
+*.bm25-backup
+*.leakage-backup

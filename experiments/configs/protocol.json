@@ -1,0 +1,36 @@
+{
+  "study_name": "TRACE pilot",
+  "status": "protocol_draft",
+  "primary_metric": "verified_issue_resolution_rate",
+  "secondary_metrics": [
+    "model_calls",
+    "input_tokens",
+    "output_tokens",
+    "tool_calls",
+    "wall_clock_seconds",
+    "tests_executed",
+    "patch_application_failures",
+    "regression_failures"
+  ],
+  "baselines": [
+    "basic_agent",
+    "lexical_retrieval",
+    "graph_guided_retrieval",
+    "test_guided_agent",
+    "full_trace"
+  ],
+  "controls": [
+    "same_issue_set",
+    "same_base_model",
+    "same_tool_permissions",
+    "matched_execution_budget",
+    "fixed_validation_protocol"
+  ],
+  "reporting": {
+    "include_counts_and_denominators": true,
+    "confidence_interval": "95%",
+    "report_failed_runs": true,
+    "do_not_invent_results": true
+  },
+  "note": "This file describes a proposed protocol. It contains no measured benchmark results."
+}

@@ -1,0 +1,36 @@
+{
+  "dataset_name": "TRACE local retrieval development fixtures",
+  "version": 1,
+  "status": "development_only",
+  "labeling_note": "Small manually authored development labels. These are not held-out cases or benchmark results.",
+  "cases": [
+    {
+      "id": "explorer-ast",
+      "query": "python ast imports symbols",
+      "relevant_paths": ["src/trace_research/explorer.py"]
+    },
+    {
+      "id": "cli-json-output",
+      "query": "command line inspect repository output json",
+      "relevant_paths": ["src/trace_research/cli.py"]
+    },
+    {
+      "id": "explorer-tests",
+      "query": "pytest virtual environment ignores",
+      "relevant_paths": ["tests/test_explorer.py"]
+    },
+    {
+      "id": "protocol-reporting",
+      "query": "experiment protocol benchmark confidence interval",
+      "relevant_paths": [
+        "docs/experiment_protocol.md",
+        "experiments/configs/protocol.json"
+      ]
+    },
+    {
+      "id": "demo-output",
+      "query": "local demo benchmark warning",
+      "relevant_paths": ["results/local_demo.json"]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "kind": "local_retrieval_fixture_evaluation",
+  "not_a_benchmark": true,
+  "not_a_gemma_4_result": true,
+  "method": "BM25 lexical retrieval",
+  "label_scope": "local development fixtures only",
+  "metric_definitions": {
+    "recall_at_k": "Relevant files in top k divided by all labelled relevant files.",
+    "reciprocal_rank": "1 divided by the rank of the first relevant file; zero if absent.",
+    "mean_reciprocal_rank": "Mean reciprocal rank across evaluation cases."
+  },
+  "ks": [
+    1,
+    3,
+    5
+  ],
+  "limit": 10,
+  "summary": {
+    "case_count": 5,
+    "mean_reciprocal_rank": 0.8333333333333334,
+    "mean_recall_at_k": {
+      "1": 0.7,
+      "3": 0.8,
+      "5": 0.8
+    }
+  },
+  "cases": [
+    {
+      "id": "explorer-ast",
+      "query": "python ast imports symbols",
+      "relevant_paths": [
+        "src/trace_research/explorer.py"
+      ],
+      "ranked_paths": [
+        "src/trace_research/explorer.py",
+        "tests/test_explorer.py",
+        "results/initial_inspection.json",
+        "results/local_demo.json",
+        "paper/manuscript.md",
+        "README.md",
+        "pyproject.toml"
+      ],
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "recall_at_k": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0
+      }
+    },
+    {
+      "id": "cli-json-output",
+      "query": "command line inspect repository output json",
+      "relevant_paths": [
+        "src/trace_research/cli.py"
+      ],
+      "ranked_paths": [
+        "src/trace_research/cli.py",
+        "pyproject.toml",
+        "experiments/configs/protocol.json",
+        "docs/experiment_protocol.md",
+        "tests/test_explorer.py",
+        "results/local_demo.json",
+        "results/initial_inspection.json",
+        "results/README.md",
+        "docs/research_log.md",
+        "README.md"
+      ],
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "recall_at_k": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0
+      }
+    },
+    {
+      "id": "explorer-tests",
+      "query": "pytest virtual environment ignores",
+      "relevant_paths": [
+        "tests/test_explorer.py"
+      ],
+      "ranked_paths": [
+        "tests/test_explorer.py",
+        "results/initial_inspection.json",
+        "results/local_demo.json",
+        "README.md",
+        "pyproject.toml",
+        "paper/manuscript.md",
+        "src/trace_research/explorer.py"
+      ],
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "recall_at_k": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0
+      }
+    },
+    {
+      "id": "protocol-reporting",
+      "query": "experiment protocol benchmark confidence interval",
+      "relevant_paths": [
+        "docs/experiment_protocol.md",
+        "experiments/configs/protocol.json"
+      ],
+      "ranked_paths": [
+        "experiments/configs/protocol.json",
+        "README.md",
+        "docs/experiment_protocol.md",
+        "results/initial_inspection.json",
+        "results/local_demo.json",
+        "paper/manuscript.md",
+        "docs/research_log.md",
+        "results/README.md",
+        "src/trace_research/cli.py"
+      ],
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "recall_at_k": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0
+      }
+    },
+    {
+      "id": "demo-output",
+      "query": "local demo benchmark warning",
+      "relevant_paths": [
+        "results/local_demo.json"
+      ],
+      "ranked_paths": [
+        "src/trace_research/cli.py",
+        "results/initial_inspection.json",
+        "README.md",
+        "results/README.md",
+        "experiments/scripts/run_local_demo.py",
+        "results/local_demo.json",
+        "docs/research_log.md",
+        "paper/manuscript.md",
+        "docs/experiment_protocol.md",
+        "experiments/configs/protocol.json"
+      ],
+      "first_relevant_rank": 6,
+      "reciprocal_rank": 0.16666666666666666,
+      "recall_at_k": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0
+      }
+    }
+  ]
+}

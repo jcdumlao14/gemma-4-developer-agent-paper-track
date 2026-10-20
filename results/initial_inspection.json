@@ -1,0 +1,130 @@
+{
+  "kind": "local_repository_inspection",
+  "warning": "This is a lexical baseline demonstration, not a benchmark or Gemma 4 result.",
+  "query": "repository exploration evidence test",
+  "results": [
+    {
+      "path": "README.md",
+      "score": 4.0,
+      "matched_terms": [
+        "evidence",
+        "exploration",
+        "repository",
+        "test"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "paper/manuscript.md",
+      "score": 4.0,
+      "matched_terms": [
+        "evidence",
+        "exploration",
+        "repository",
+        "test"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "pyproject.toml",
+      "score": 4.0,
+      "matched_terms": [
+        "evidence",
+        "exploration",
+        "repository",
+        "test"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "src/trace_research/cli.py",
+      "score": 4.0,
+      "matched_terms": [
+        "evidence",
+        "exploration",
+        "repository",
+        "test"
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "explorer",
+        "json",
+        "pathlib"
+      ],
+      "symbols": [
+        "main"
+      ]
+    },
+    {
+      "path": "tests/test_explorer.py",
+      "score": 4.0,
+      "matched_terms": [
+        "repository",
+        "test"
+      ],
+      "imports": [
+        "pathlib",
+        "pytest",
+        "trace_research.explorer"
+      ],
+      "symbols": [
+        "test_finds_matching_python_file_and_extracts_symbols",
+        "test_ignores_virtual_environment",
+        "test_limit_must_be_positive",
+        "test_requires_existing_directory",
+        "test_requires_nonempty_query"
+      ]
+    },
+    {
+      "path": "docs/experiment_protocol.md",
+      "score": 2.0,
+      "matched_terms": [
+        "repository",
+        "test"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "src/trace_research/explorer.py",
+      "score": 2.0,
+      "matched_terms": [
+        "evidence",
+        "repository"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "docs/research_log.md",
+      "score": 1.0,
+      "matched_terms": [
+        "evidence"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "experiments/configs/protocol.json",
+      "score": 1.0,
+      "matched_terms": [
+        "test"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "results/README.md",
+      "score": 1.0,
+      "matched_terms": [
+        "repository"
+      ],
+      "imports": [],
+      "symbols": []
+    }
+  ]
+}
