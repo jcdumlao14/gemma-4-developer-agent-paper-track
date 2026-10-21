@@ -6,7 +6,7 @@ Research scaffold for the Google – The Gemma 4 Developer Agent Paper Track.
 Does structured, evidence-based repository exploration improve localization and verification efficiency for software-engineering agents under a fixed tool/context budget?
 
 ## Status
-**Prototype scaffold.** The current workflow combines lexical and BM25 retrieval with bounded evidence inspection. It does not invoke Gemma 4, generate or apply patches, or run tests in target repositories. Local unit tests verify software behavior only; they are not benchmark results. Do not report benchmark success rates or performance claims until controlled experiments are run and documented.
+**Research prototype.** The workflow combines lexical and BM25 retrieval with bounded evidence inspection. The optional `propose` command can invoke a configured model (including Gemma 4 through Ollama) to produce a repair proposal from bounded repository evidence. It does not automatically apply the proposed patch or execute tests in the target repository. Local unit tests verify implementation behavior only; they are not benchmark results. The four-case pilot is limited, the controlled baseline comparison remains incomplete, and no benchmark-wide effectiveness claim is established.
 
 ## Quick start (Python 3.11+ recommended)
 ```powershell
@@ -34,3 +34,20 @@ python -m trace_research.cli run-demo
 - Do not use hidden test labels or benchmark solutions for tuning.
 - Confirm dataset/model licenses and competition rules before public release.
 - The proposed TRACE method is a hypothesis to test, not an established improvement.
+
+## TRACE Evidence Dashboard
+
+TRACE includes a local, read-only dashboard for navigating available
+research reports and implementation evidence.
+
+- **Methodology and usage:** [TRACE Dashboard Methodology and User Guide](tools/TRACE_DASHBOARD_README.md)
+- **Dashboard implementation:** `tools/trace_dashboard.py`
+- **Run locally:** `python tools/trace_dashboard.py`
+- **Local address:** `http://127.0.0.1:8765`
+
+The dashboard organizes available evidence; it does not independently
+reproduce historical benchmark results. A model proposal is not proof of
+a successful repair, and recorded test outcomes should not be presented
+as independently reproduced results. The four-case pilot remains limited,
+the controlled baseline comparison is incomplete, and no benchmark-wide
+effectiveness claim is established.

@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .benchmark import load_benchmark_cases
 from .explorer import inspect_repository
+from .proposal_workflow import run_trace_proposal
 from .workflow import run_trace
 
 
@@ -36,6 +37,21 @@ def main() -> None:
     validate.add_argument("path", type=Path)
 
     sub.add_parser("run-demo", help="run a small local demonstration and save explicitly labelled output")
+    propose = sub.add_parser(
+        "propose",
+        help="inspect evidence and request a repair proposal without applying it",
+    )
+    propose.add_argument("root", type=Path)
+    propose.add_argument("--issue", required=True)
+    propose.add_argument("--failure", required=True, help="failing test output text")
+    propose.add_argument("--case-id", default="local-proposal")
+    propose.add_argument("--budget", type=int, default=6)
+    propose.add_argument("--limit", type=int, default=5)
+    propose.add_argument("--max-files", type=int, default=3)
+    propose.add_argument("--model")
+    propose.add_argument("--base-url")
+    propose.add_argument("--timeout", type=int, default=120)
+    propose.add_argument("--output", type=Path)
     args = parser.parse_args()
 
     if args.command == "inspect":
@@ -78,6 +94,27 @@ def main() -> None:
             budget=args.budget,
             limit=args.limit,
         )
+        output = json.dumps(report, indent=2)
+        if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(output + "\n", encoding="utf-8")
+        print(output)
+    elif args.command == "propose":
+        try:
+            report = run_trace_proposal(
+                args.root,
+                args.issue,
+                args.failure,
+                case_id=args.case_id,
+                budget=args.budget,
+                limit=args.limit,
+                max_files=args.max_files,
+                model=args.model,
+                base_url=args.base_url,
+                timeout_seconds=args.timeout,
+            )
+        except (OSError, ValueError, RuntimeError) as exc:
+            parser.error(str(exc))
         output = json.dumps(report, indent=2)
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)
