@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "case_id": "synthetic-queue-off-by-one",
+      "repository_url": "https://example.invalid/trace-synthetic-queue",
+      "base_commit": "0000000000000000000000000000000000000000",
+      "issue": "The next_guest function returns the second guest instead of the first waiting guest.",
+      "split": "development",
+      "test_command": ["python", "-m", "pytest", "-q"],
+      "expected_failing_tests": [
+        "tests/test_queue.py::test_next_guest_returns_first_waiting_guest"
+      ],
+      "relevant_files": [
+        "src/queue.py",
+        "tests/test_queue.py"
+      ],
+      "license": "Synthetic example; no external repository license asserted",
+      "provenance": "Generated synthetic example for schema and validator testing only; not a real repository or benchmark case.",
+      "synthetic": true
+    }
+  ]
+}

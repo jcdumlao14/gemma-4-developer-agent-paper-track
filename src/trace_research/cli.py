@@ -4,7 +4,9 @@ import argparse
 import json
 from pathlib import Path
 
+from .benchmark import load_benchmark_cases
 from .explorer import inspect_repository
+from .workflow import run_trace
 
 
 def main() -> None:
@@ -16,6 +18,22 @@ def main() -> None:
     inspect.add_argument("--query", required=True)
     inspect.add_argument("--limit", type=int, default=10)
     inspect.add_argument("--output", type=Path)
+
+    trace = sub.add_parser(
+        "trace",
+        help="produce a bounded, inspect-only evidence trace for an issue",
+    )
+    trace.add_argument("root", type=Path)
+    trace.add_argument("--issue", required=True)
+    trace.add_argument("--budget", type=int, default=6)
+    trace.add_argument("--limit", type=int, default=5)
+    trace.add_argument("--output", type=Path)
+
+    validate = sub.add_parser(
+        "validate-benchmark",
+        help="validate benchmark metadata without executing repository code",
+    )
+    validate.add_argument("path", type=Path)
 
     sub.add_parser("run-demo", help="run a small local demonstration and save explicitly labelled output")
     args = parser.parse_args()
@@ -29,6 +47,38 @@ def main() -> None:
             "results": [item.to_dict() for item in results],
         }
         output = json.dumps(payload, indent=2)
+        if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(output + "\n", encoding="utf-8")
+        print(output)
+    elif args.command == "validate-benchmark":
+        try:
+            cases = load_benchmark_cases(args.path)
+        except (OSError, ValueError) as exc:
+            parser.error(str(exc))
+        payload = {
+            "kind": "benchmark_validation",
+            "valid": True,
+            "case_count": len(cases),
+            "cases": [
+                {
+                    "case_id": case["case_id"],
+                    "split": case["split"],
+                    "synthetic": case["synthetic"],
+                }
+                for case in cases
+            ],
+            "note": "Metadata validation only; this does not verify repository access, test reproducibility, benchmark quality, or licensing.",
+        }
+        print(json.dumps(payload, indent=2))
+    elif args.command == "trace":
+        report = run_trace(
+            args.root,
+            args.issue,
+            budget=args.budget,
+            limit=args.limit,
+        )
+        output = json.dumps(report, indent=2)
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_text(output + "\n", encoding="utf-8")

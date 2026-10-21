@@ -1,0 +1,55 @@
+﻿{
+    "project":  "TRACE: Gemma 4 Developer Agent",
+    "report_type":  "consolidated_pilot_results",
+    "generated_utc":  "2026-10-20T11:00:24.0499282Z",
+    "pilot_case_count":  4,
+    "cases":  [
+                  {
+                      "id":  "sqlfluff-1733",
+                      "provenance":  "successful candidate from subsequent rule-isolation investigation; not Gemma",
+                      "target_passed":  true,
+                      "controls_passed":  "3/3",
+                      "broader_validation":  "510 passed in test/rules",
+                      "source_restored":  true,
+                      "interpretation":  "investigated repair, not Gemma-attributed success"
+                  },
+                  {
+                      "id":  "sqlfluff-1625",
+                      "provenance":  "Gemma candidate with diagnostic guidance",
+                      "target_passed":  true,
+                      "controls_passed":  null,
+                      "broader_validation":  "69 passed in full CLI module",
+                      "source_restored":  true,
+                      "interpretation":  "test-guided repair"
+                  },
+                  {
+                      "id":  "marshmallow-1343",
+                      "provenance":  "Gemma candidate guided by traceback",
+                      "target_passed":  true,
+                      "controls_passed":  "1/1",
+                      "broader_validation":  "780 passed in full suite; 25 passed in marshalling module",
+                      "source_restored":  true,
+                      "interpretation":  "traceback-guided repair"
+                  },
+                  {
+                      "id":  "marshmallow-1359",
+                      "provenance":  "initial Gemma proposal rejected; refined traceback-guided candidate validated",
+                      "target_passed":  true,
+                      "controls_passed":  "5/5",
+                      "broader_validation":  "912 passed in full suite; 77 passed in test_fields.py",
+                      "source_restored":  true,
+                      "source_sha256":  "5529e7074bebc094e09fcbc8efaf88397f8026d1f21605bf62fc9d99b8ae601f",
+                      "production_diff_paths":  [
+
+                                                ],
+                      "candidate_left_applied":  false,
+                      "interpretation":  "refined candidate passed recorded validation"
+                  }
+              ],
+    "limitations":  [
+                        "Four cases do not establish benchmark-wide performance.",
+                        "Candidate provenance and prompt information vary by case.",
+                        "Passing tests do not prove correctness for all inputs or environments.",
+                        "Do not attribute the SQLFluff-1733 investigated candidate to Gemma."
+                    ]
+}

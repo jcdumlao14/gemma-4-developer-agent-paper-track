@@ -6,7 +6,7 @@ Research scaffold for the Google – The Gemma 4 Developer Agent Paper Track.
 Does structured, evidence-based repository exploration improve localization and verification efficiency for software-engineering agents under a fixed tool/context budget?
 
 ## Status
-**Prototype scaffold.** The included repository explorer and tests are local software tests, not a Gemma 4 benchmark. No benchmark success rates or performance claims should be reported until experiments are run and recorded.
+**Prototype scaffold.** The current workflow combines lexical and BM25 retrieval with bounded evidence inspection. It does not invoke Gemma 4, generate or apply patches, or run tests in target repositories. Local unit tests verify software behavior only; they are not benchmark results. Do not report benchmark success rates or performance claims until controlled experiments are run and documented.
 
 ## Quick start (Python 3.11+ recommended)
 ```powershell
