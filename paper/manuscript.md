@@ -1,9 +1,10 @@
-﻿# TRACE: Test-Guided Repository Exploration and Evidence-Grounded Repair for Small Language Model Coding Agents
+﻿# TRACE: Evidence-Grounded Repair for Small Language Model Coding Agents 
 
 **Subtitle:** A Four-Case Pilot Study of Repository Exploration, Candidate Repair, and Regression Validation
 
 **Author:** Jocelyn C. Dumlao
-**Affiliation:** Independent Researcher, Data Science and Machine Learning, Philippines
+
+**Affiliation:** Independent Researcher, Data Science and Machine Learning, Davao City, Philippines
 
 ## Abstract
 
